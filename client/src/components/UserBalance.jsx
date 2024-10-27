@@ -1,12 +1,14 @@
 import axios from "axios";
 import { useEffect } from "react";
-import { useRecoilState } from "recoil";
+import { useRecoilState, useRecoilValue } from "recoil";
 import { userBalance } from "../store/atoms/userBalance";
 import getCookie from "../custom/getCookie";
+import sendModalState from "../store/atoms/sendModalState";
 
 function UserBalance() {
     const token = getCookie("token");
     const [balance, setBalance] = useRecoilState(userBalance);
+    const sendModal = useRecoilValue(sendModalState);
     useEffect(() => {
         axios.get("http://localhost:3000/api/v1/account/balance",{
             headers:{
@@ -20,7 +22,7 @@ function UserBalance() {
         .catch((error) => {
             console.error(error);
         })
-    }, []);
+    }, [sendModal]);
     return(
         <div className="flex items-center shadow-md border m-2 p-2 pl-6 pr-6 w-fit">
             <h2 className="font-semibold text-lg m-2">Your balance: </h2>

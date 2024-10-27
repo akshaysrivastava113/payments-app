@@ -3,8 +3,8 @@ const JWT_SECRET = process.env.JWT_SECRET;
 
 function userAuth(req,res,next){
     let token = req.headers.authorization;
-    token = token.split(' ')[1].trim();
     console.log(token);
+    token = token.split(' ')[1].trim();
 
     let verifiedToken;
     try {

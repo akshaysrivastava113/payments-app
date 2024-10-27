@@ -32,6 +32,10 @@ router.post('/transfer', userAuth, async (req,res) => {
     const sendTo = req.body.sendTo;
     const amount = req.body.amount;
 
+    console.log('userId', userId);
+    console.log('sendTo', sendTo);
+    console.log('amount', amount);
+
     let remainingBalance = await Account.findOne({userId: userId});
     if(!remainingBalance){
         return res.status(411).json({

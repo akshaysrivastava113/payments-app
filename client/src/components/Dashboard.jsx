@@ -5,6 +5,7 @@ import AppBar from "./AppBar";
 import ProfileOptions from "./ProfileOptions";
 import UserBalance from "./UserBalance";
 import Users from "./Users";
+import SendMoney from "./SendMoney";
 
 function Dashboard() {
   const token = getCookie("token");
