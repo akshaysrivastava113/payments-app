@@ -31,11 +31,6 @@ router.post('/transfer', userAuth, async (req,res) => {
     const userId = req.userId;
     const sendTo = req.body.sendTo;
     const amount = req.body.amount;
-
-    console.log('userId', userId);
-    console.log('sendTo', sendTo);
-    console.log('amount', amount);
-
     let remainingBalance = await Account.findOne({userId: userId});
     if(!remainingBalance){
         return res.status(411).json({
@@ -52,8 +47,6 @@ router.post('/transfer', userAuth, async (req,res) => {
     //Proceed with the transaction only if remaining balance is greater than the amount
     remainingBalance = remainingBalance.balance;
     receiverBalance = receiverBalance.balance;
-    console.log("remainingBalance", remainingBalance);
-    console.log("receiverBalance", receiverBalance);
 
     if(remainingBalance >= amount ){
         //Debit balance from thr first account then credit to another
@@ -62,8 +55,6 @@ router.post('/transfer', userAuth, async (req,res) => {
 
         const updateReceiver = await Account.findOneAndUpdate({userId: sendTo}, {balance: Number(receiverBalance)+Number(amount) });
 
-        console.log(updateSender);
-        console.log(updateReceiver);
     } else {
         return res.status(411).json({
             "msg": "Insuffiecient balance"

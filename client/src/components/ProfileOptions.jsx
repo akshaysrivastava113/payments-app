@@ -1,7 +1,4 @@
-import { useRecoilValue } from "recoil";
-import { userId } from "../store/atoms/userid";
 import getCookie from "../custom/getCookie";
-import AppBar from "./AppBar";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import deleteCookie from "../custom/deleteCookie";

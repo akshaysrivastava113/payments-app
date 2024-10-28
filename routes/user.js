@@ -14,8 +14,6 @@ router.post('/signup', async (req,res) => {
     const firstName = req.body.firstName;
     const lastName = req.body.lastName;
     let token = "";
-    console.log(req.body);
-
     const usernameSanitized = stringSchema.safeParse(username).data;
     const passwordSanitized = stringSchema.safeParse(password).data;
     const firstNameSanitized = stringSchema.safeParse(firstName).data;
@@ -32,7 +30,6 @@ router.post('/signup', async (req,res) => {
             "msg": "Incorrect inputs"
         })
     }
-
 
     //Check for the user in users table in the db, if not present > add a new one ; error out if present
 
@@ -146,7 +143,6 @@ router.post('/signin', async (req,res) => {
             "msg": "Something went wrong"
         })
     }
-
 
     res.status(200).json({
         "msg": "All OK",

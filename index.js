@@ -5,7 +5,6 @@ const adminRouter = require("./routes/admin");
 const apiUser = require('./routes/apiUser');
 const apiAccount = require('./routes/apiAccount');
 const cors = require("cors");
-const bodyParser = require("body-parser");
 require('dotenv').config();
 
 const PORT = process.env.PORT;

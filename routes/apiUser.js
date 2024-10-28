@@ -2,9 +2,7 @@ const express = require("express");
 const { userAuth } = require("../middleware/userAuth");
 const { z } = require("zod");
 const { User } = require("../db/db");
-
 const router = express.Router();
-
 const stringSchema = z.string();
 
 router.get('/', (req,res) => {
@@ -65,7 +63,6 @@ router.put('/', userAuth, async (req,res) => {
 router.get('/bulk', userAuth, async (req,res) => {
     //Accept parameter, store as searchableUsername
     //use findAll in mongoose - Yes, return all in an Array? : No, no entries found
-
     const searchableName = req.query.filter;
 
     //Search with firstName first
@@ -74,11 +71,8 @@ router.get('/bulk', userAuth, async (req,res) => {
     const lastNameUsersFound = await User.find({lastName: searchableName})
     
     const allUsers = firstNameUsersFound.concat(lastNameUsersFound);
-
-    console.log(allUsers);
     const responseObj = {};
     responseObj["users"] = allUsers;
-    console.log(responseObj);
 
     if(allUsers.length === 0){
         return res.status(411).json({

@@ -1,11 +1,8 @@
-import { useRecoilValue } from "recoil";
-import { userId } from "../store/atoms/userid";
+
 import getCookie from "../custom/getCookie";
 import AppBar from "./AppBar";
-import ProfileOptions from "./ProfileOptions";
 import UserBalance from "./UserBalance";
 import Users from "./Users";
-import SendMoney from "./SendMoney";
 
 function Dashboard() {
   const token = getCookie("token");
