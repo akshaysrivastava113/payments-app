@@ -27,7 +27,7 @@ const [password, setPassword] = useState("");
                 <div className="w-full p-1 mt-1">
                     <button onClick={() => {
                         console.log(username);
-                        axios.post('http://localhost:3000/signin', {
+                        axios.post('http://ec2-44-223-1-245.compute-1.amazonaws.com/signin', {
                             username: username,
                             password: password
                         }).then(response => {

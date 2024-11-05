@@ -6,15 +6,16 @@ import Dashboard from './components/Dashboard';
 import SendMoney from './components/SendMoney';
 import './App.css';
 import { RecoilRoot } from 'recoil';
+import Home from './components/Home';
 
 function App() {
 
   return (
     <>
-    <p></p>
     <RecoilRoot>
     <BrowserRouter>
       <Routes>
+        <Route path='/' element={<Home/>}/>
         <Route path='/signup' element={<Signup/>}/>
         <Route path='/signin' element={<Signin/>}/>
         <Route path='/dashboard' element={<Dashboard/>}/>

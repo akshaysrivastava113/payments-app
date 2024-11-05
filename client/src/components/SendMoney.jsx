@@ -21,7 +21,7 @@ function SendMoney(props) {
           </div>
           <div className="w-full flex justify-center">
           <button onClick={() => {
-          axios.post('http://localhost:3000/api/v1/account/transfer', {
+          axios.post('http://ec2-44-223-1-245.compute-1.amazonaws.com/api/v1/account/transfer', {
               sendTo: props.receiverKey,
               amount: amount,
           },{

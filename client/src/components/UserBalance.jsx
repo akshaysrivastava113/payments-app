@@ -10,7 +10,7 @@ function UserBalance() {
     const [balance, setBalance] = useRecoilState(userBalance);
     const sendModal = useRecoilValue(sendModalState);
     useEffect(() => {
-        axios.get("http://localhost:3000/api/v1/account/balance",{
+        axios.get("http://ec2-44-223-1-245.compute-1.amazonaws.com/api/v1/account/balance",{
             headers:{
                 'Authorization': `Bearer ${token}`
             }

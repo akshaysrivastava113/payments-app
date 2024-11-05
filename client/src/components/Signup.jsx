@@ -40,7 +40,7 @@ const [userIdRec, setUserIdRec] = useRecoilState(userId);
                 <div className="w-full p-1 mt-1">
                     <button onClick={() => {
                         console.log(username);
-                        axios.post('http://localhost:3000/signup', {
+                        axios.post('http://ec2-44-223-1-245.compute-1.amazonaws.com/signup', {
                             username: username,
                             password: password,
                             firstName: firstName,

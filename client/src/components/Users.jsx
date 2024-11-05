@@ -15,7 +15,7 @@ function Users() {
     const [sendModal, setSendModal] = useRecoilState(sendModalState);
 
     useEffect(() => {
-        axios.get(`http://localhost:3000/api/v1/user/bulk?filter=${searchedUser}`,{
+        axios.get(`http://ec2-44-223-1-245.compute-1.amazonaws.com/api/v1/user/bulk?filter=${searchedUser}`,{
             headers:{
                 'Authorization': `Bearer ${token}`
             }
@@ -31,7 +31,7 @@ function Users() {
     }, []);
     return(
         <>
-        {usersListLocal.map((user) => {
+        {usersListLocal && usersListLocal.map((user) => {
             return (
                 <>
                 <div className="flex justify-between items-center m-2 p-2 border">
